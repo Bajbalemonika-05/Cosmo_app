@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Welcome to Cosmo website</title>
+    <meta name="description" contents="">
+    <meta name="viewport" contents="width=device-width, intia-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <style>
+
+           *{
+margin:0 px;
+padding:0px;
+box-sizing:border-box;
+font-family:"Poppins",sans-serif;
+}
+
+body{
+<!--display:table;-->
+justify-content:center;
+align-items:center;
+min-height:100vh;
+background-size:cover;
+background-position:center;
+}
+
+.btn{
+width:5%;
+height:42px;
+background: transparent;
+border:1 px solid;
+border-radius: 10px;
+outline:1 px;
+cursor:pointer;
+font-size:15px;
+color:black;
+font-weight:600;
+text-align:center;
+position:sticky;
+margin:auto;
+margin:0px 0px 0px 0px;
+}
+
+.head{
+font-size:35px;
+text-align: center;
+color: black;
+margin:0px 200px 300px 320px;
+}
+   </style>
+    </head>
+    <body  id="bg" style="background-image: url('{% static 'image/image1.jpg'%}');">
+
+        <div class="head">
+        <h4>Welcome to Online Cosmetic Webpage</h4>
+        </div>
+
+
+        {% if user.is_authenticated %}
+        <h3>hello {{fname}} </h3>
+        <h3>You are successfully logged in</h3><br>
+        <button class="btn" type="submit"><a href="/signout">Sign Out</a></button>
+
+        {% else %}
+        <button class="btn" type="submit" ><a href="/signup">Sign Up</a></button>
+        <button class="btn" type="submit"><a href="/signin">Sign In</a></button>
+
+        {% endif %}
+
+    </body>
+</html>
